@@ -47,11 +47,6 @@ class SigninPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
               ),
-              // style: ElevatedButton.styleFrom(
-              //   textStyle: const TextStyle(
-              //     color: Colors.black, // Set text color to black
-              //   ),
-              // ),
               child: const Text('Sign In',
               style: TextStyle(color: Colors.black),),
             ),
