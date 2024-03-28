@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:yaarit/screens/loginflow/signin.dart';
+import 'package:yaarit/screens/loginflow/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       // ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const SigninPage(),
+        '/': (context) => const SignupPage(), // SigninPage(),
   },
 );
 }
