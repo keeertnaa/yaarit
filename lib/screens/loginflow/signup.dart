@@ -17,7 +17,7 @@ class SignupPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(height: GlobalSizes.h * 0.05), // Use GlobalSizes for height
-            Center(
+            const Center(
               child: Text(
                 'Sign Up',
                 style: TextStyle(
@@ -29,7 +29,7 @@ class SignupPage extends StatelessWidget {
             ),
             SizedBox(height: GlobalSizes.h*0.05),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
               ),
@@ -37,7 +37,7 @@ class SignupPage extends StatelessWidget {
             SizedBox(height: GlobalSizes.h*0.025),
             TextFormField(
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(),
               ),
@@ -45,7 +45,7 @@ class SignupPage extends StatelessWidget {
             SizedBox(height: GlobalSizes.h*0.025),
             TextFormField(
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Confirm Password',
                 border: OutlineInputBorder(),
               ),
@@ -58,7 +58,7 @@ class SignupPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
               ),
-              child: Text(
+              child: const Text(
                 'Sign Up',
                 style: TextStyle(color: Colors.black),
               ),
@@ -68,7 +68,7 @@ class SignupPage extends StatelessWidget {
               onTap: () {
                 // Navigate to sign-in page or implement other action
               },
-              child: Text(
+              child: const Text(
                 'Already have an account? Sign In',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.blue),
