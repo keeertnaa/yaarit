@@ -3,14 +3,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:yaarit/models/user.dart';
 import 'package:yaarit/providers/user_provider.dart';
-// import 'package:yaarit/screens/home_screen.dart';
-// import 'package:yaarit/screens/signup_screen.dart';
+import 'package:yaarit/screens/homepage.dart';
+import 'package:yaarit/screens/loginflow/signup.dart';
 import 'package:yaarit/utils/constants.dart';
 import 'package:yaarit/utils/utils.dart';
-// import 'package:http/http.dart' as http;
-// import 'package:provider/provider.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
 
 class AuthService {
@@ -132,7 +131,7 @@ class AuthService {
     prefs.setString('x-auth-token', '');
     navigator.pushAndRemoveUntil(
       MaterialPageRoute(
-        builder: (context) => const SignupScreen(),
+        builder: (context) => const SignupPage(),
       ),
       (route) => false,
     );

@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
       '/': (context) => const SignupPage(), // SigninPage(),
+      '/signin': (context) => const SigninPage(),
     },
     // home: Provider.of<UserProvider>(context).user.token.isEmpty ? const SignupScreen() : const HomeScreen(),
 );

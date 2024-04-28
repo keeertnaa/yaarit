@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:yaarit/screens/loginflow/signin.dart';
 import 'package:yaarit/screens/loginflow/socials.dart';
 import 'package:yaarit/screens/constants/constant.dart';
+import 'package:yaarit/services/auth_services.dart';
+import 'package:yaarit/custom_textfield.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
+
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final AuthService authService = AuthService();
+
+  void signupUser() {
+    authService.signUpUser(
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+      name: nameController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     GlobalSizes.init(context); // Initialize GlobalSizes
-  
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -28,33 +49,43 @@ class SignupPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: GlobalSizes.h*0.05),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
-              ),
+            // TextFormField(
+            //   decoration: const InputDecoration(
+            //     labelText: 'Email',
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+            CustomTextField(
+              controller: nameController,
+              hintText: 'Enter your name',
             ),
             SizedBox(height: GlobalSizes.h*0.025),
-            TextFormField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-              ),
+            // TextFormField(
+            //   obscureText: true,
+            //   decoration: const InputDecoration(
+            //     labelText: 'Password',
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+            CustomTextField(
+              controller: emailController,
+              hintText: 'Enter your email',
             ),
             SizedBox(height: GlobalSizes.h*0.025),
-            TextFormField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Confirm Password',
-                border: OutlineInputBorder(),
-              ),
+            // TextFormField(
+            //   obscureText: true,
+            //   decoration: const InputDecoration(
+            //     labelText: 'Confirm Password',
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+            CustomTextField(
+              controller: passwordController,
+              hintText: 'Enter your password',
             ),
             SizedBox(height: GlobalSizes.h*0.025),
             ElevatedButton(
-              onPressed: () {
-                // Implement sign-up functionality here
-              },
+              onPressed: signupUser,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
               ),
@@ -67,6 +98,7 @@ class SignupPage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 // Navigate to sign-in page or implement other action
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SigninPage()));
               },
               child: const Text(
                 'Already have an account? Sign In',
