@@ -85,7 +85,17 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(height: GlobalSizes.h*0.025),
             ElevatedButton(
-              onPressed: signupUser,
+              onPressed: () {
+              String email = emailController.text;  // Correct the case of emailController
+              List<String> allowedDomains = ['@mvsrec.edu.in', '@moonlighttstudios.com'];
+              bool isAllowed = allowedDomains.any((domain) => email.contains(domain));
+
+              if (isAllowed) {
+                signupUser();  // Call the login function if the email is allowed
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Sign-up with college domain")));
+              }
+            },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
               ),

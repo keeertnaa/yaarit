@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:yaarit/screens/loginflow/signup.dart';
 import 'package:yaarit/screens/loginflow/socials.dart';
 import 'package:yaarit/screens/constants/constant.dart';
 import 'package:yaarit/services/auth_services.dart';
 import 'package:yaarit/custom_textfield.dart';
+
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
 
@@ -44,8 +46,8 @@ void loginUser() {
           ),
           SizedBox(height: GlobalSizes.h*0.2),
           CustomTextField(
-              controller: passwordController,
-              hintText: 'Enter your password',
+              controller: emailController,
+              hintText: 'Enter your email',
             ),
           SizedBox(height: GlobalSizes.h*0.15),
           CustomTextField(
@@ -53,10 +55,19 @@ void loginUser() {
               hintText: 'Enter your password',
             ),
           SizedBox(height: GlobalSizes.h*0.15),
-          ElevatedButton(
+          ElevatedButton( 
             onPressed: () {
-              // Implement sign-in functionality here
+              String email = emailController.text;  // Correct the case of emailController
+              List<String> allowedDomains = ['@mvsrec.edu.in', '@moonlighttstudios.com'];
+              bool isAllowed = allowedDomains.any((domain) => email.contains(domain));
+
+              if (isAllowed) {
+                loginUser();  // Call the login function if the email is allowed
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign-in not allowed for $email")));
+              }
             },
+            
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white, 
             ),
@@ -67,6 +78,7 @@ void loginUser() {
           GestureDetector(
             onTap: () {
               // Navigate to sign-up page or implement forgot password functionality
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupPage()));
             },
             child: const Text(
               'Forgot Password?',
