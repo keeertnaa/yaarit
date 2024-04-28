@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(authRouter);
 
 const DB =
-  "mongodb+srv://vid:<9550249061>@atlascluster.a8mlmy1.mongodb.net/";
+  "mongodb+srv://vid:9550249061@atlascluster.a8mlmy1.mongodb.net/";
 
 mongoose
   .connect(DB)

@@ -18,7 +18,7 @@ class GoogleBtn1 extends StatelessWidget {
         ),
         child: TextButton(
           style: ButtonStyle(
-              shape: WidgetStateProperty.all(RoundedRectangleBorder(
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15)))),
           onPressed: onPressed,
           child: Row(
@@ -57,7 +57,7 @@ class GitHubBtn1 extends StatelessWidget {
         ),
         child: TextButton(
           style: ButtonStyle(
-              shape: WidgetStateProperty.all(RoundedRectangleBorder(
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15)))),
           onPressed: onPressed,
           child: Row(
@@ -97,7 +97,7 @@ class AppleBtn1 extends StatelessWidget {
         ),
         child: TextButton(
           style: ButtonStyle(
-            shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))
           ),
           onPressed: onPressed,
           child: Row(
