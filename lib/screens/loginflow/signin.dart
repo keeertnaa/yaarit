@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:yaarit/screens/loginflow/socials.dart';
 import 'package:yaarit/screens/constants/constant.dart';
-
-class SigninPage extends StatelessWidget {
+import 'package:yaarit/services/auth_services.dart';
+import 'package:yaarit/custom_textfield.dart';
+class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
 
+  @override
+  State<SigninPage> createState() => _SigninPageState();
+}
+
+class _SigninPageState extends State<SigninPage> {
+   final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthService authService = AuthService();
+
+void loginUser() {
+    authService.signInUser(
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  }
   @override
   Widget build(BuildContext context) {
   return Scaffold(
@@ -26,20 +43,15 @@ class SigninPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: GlobalSizes.h*0.2),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Email',
-              border: OutlineInputBorder(),
+          CustomTextField(
+              controller: passwordController,
+              hintText: 'Enter your password',
             ),
-          ),
           SizedBox(height: GlobalSizes.h*0.15),
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-              labelText: 'Password',
-              border: OutlineInputBorder(),
+          CustomTextField(
+              controller: passwordController,
+              hintText: 'Enter your password',
             ),
-          ),
           SizedBox(height: GlobalSizes.h*0.15),
           ElevatedButton(
             onPressed: () {
