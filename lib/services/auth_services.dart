@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -29,7 +31,7 @@ class AuthService {
       );
 
       http.Response res = await http.post(
-        Uri.parse('${Constants.uri}/api/signup'),
+        Uri.parse('https://localhost:3000/api/signup'),
         body: user.toJson(),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

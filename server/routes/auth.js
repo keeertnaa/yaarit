@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 
 // Sign Up
-authRouter.post("/api/signup", async (req, res) => {
+authRouter.post("https://localhost:3000/api/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
@@ -33,7 +33,7 @@ authRouter.post("/api/signup", async (req, res) => {
 
 // Sign In
 
-authRouter.post("/api/signin", async (req, res) => {
+authRouter.post("https://localhost:3000/api/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
 

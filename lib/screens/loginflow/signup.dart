@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yaarit/screens/loginflow/signin.dart';
-import 'package:yaarit/screens/loginflow/socials.dart';
+// import 'package:yaarit/screens/loginflow/socials.dart';
 import 'package:yaarit/screens/constants/constant.dart';
 import 'package:yaarit/services/auth_services.dart';
 import 'package:yaarit/custom_textfield.dart';
@@ -107,7 +107,6 @@ class _SignupPageState extends State<SignupPage> {
             SizedBox(height: GlobalSizes.h*0.025),
             GestureDetector(
               onTap: () {
-                // Navigate to sign-in page or implement other action
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const SigninPage()));
               },
               child: const Text(
@@ -117,21 +116,21 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
             SizedBox(height: GlobalSizes.h*0.005),
-            GoogleBtn1(
-              onPressed: () {
-                // Implement necessary code for Google sign-up
-              },
-            ),
-            GitHubBtn1(
-              onPressed: () {
-                // Implement necessary code for Github sign-up
-              },
-            ),
-            AppleBtn1(
-              onPressed: () {
-                // Implement necessary code for Apple sign-up
-              },
-            ),
+            // GoogleBtn1(
+            //   onPressed: () {
+            //     // Implement necessary code for Google sign-up
+            //   },
+            // ),
+            // GitHubBtn1(
+            //   onPressed: () {
+            //     // Implement necessary code for Github sign-up
+            //   },
+            // ),
+            // AppleBtn1(
+            //   onPressed: () {
+            //     // Implement necessary code for Apple sign-up
+            //   },
+            // ),
           ],
         ),
       ),
