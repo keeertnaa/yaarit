@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yaarit/screens/loginflow/signup.dart';
+import 'package:yaarit/custom_textfield.dart';
 // import 'package:yaarit/screens/loginflow/socials.dart';
 import 'package:yaarit/screens/constants/constant.dart';
 import 'package:yaarit/services/auth_services.dart';
-import 'package:yaarit/custom_textfield.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({Key? key}) : super(key: key);
@@ -16,14 +15,14 @@ class _SigninPageState extends State<SigninPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final AuthService authService = AuthService();
-
-void loginUser() {
-  authService.signInUser(
-     context: context,
-     email: emailController.text,
-     password: passwordController.text,
-  );
-}
+  
+  void loginUser() {
+    authService.signInUser(
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,37 +49,37 @@ void loginUser() {
               controller: emailController,
               hintText: 'Enter your email',
             ),
-          SizedBox(height: GlobalSizes.h*0.015),
+          // TextFormField(
+          //   decoration: const InputDecoration(
+          //     labelText: 'Email',
+          //     border: OutlineInputBorder(),
+          //   ),
+          // ),
+          SizedBox(height: GlobalSizes.h*0.05),
           CustomTextField(
               controller: passwordController,
               hintText: 'Enter your password',
             ),
-          SizedBox(height: GlobalSizes.h*0.015),
-          ElevatedButton( 
+          // TextFormField(
+          //   obscureText: true,
+          //   decoration: const InputDecoration(
+          //     labelText: 'Password',
+          //     border: OutlineInputBorder(),
+          //   ),
+          // ),
+          SizedBox(height: GlobalSizes.h*0.05),
+          ElevatedButton(
             onPressed: loginUser,
-            // {
-            //   String email = emailController.text;  // Correct the case of emailController
-            //   List<String> allowedDomains = ['@mvsrec.edu.in', '@moonlighttstudios.com'];
-            //   bool isAllowed = allowedDomains.any((domain) => email.contains(domain));
-
-            //   if (isAllowed) {
-            //     loginUser();
-            //   } else {
-            //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign-in not allowed for $email")));
-            //   }
-            // },
-            
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white, 
             ),
             child: const Text('Sign In',
               style: TextStyle(color: Colors.black),),
           ),
-          SizedBox(height: GlobalSizes.h*0.015),
+          SizedBox(height: GlobalSizes.h*0.05),
           GestureDetector(
             onTap: () {
               // Navigate to sign-up page or implement forgot password functionality
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupPage()));
             },
             child: const Text(
               'Forgot Password?',
@@ -88,7 +87,7 @@ void loginUser() {
               style: TextStyle(color: Colors.blue),
             ),
           ),
-          SizedBox(height: GlobalSizes.h*0.015),
+          SizedBox(height: GlobalSizes.h*0.05),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -99,6 +98,7 @@ void loginUser() {
               GestureDetector(
                 onTap: () {
                   // Implement navigation or account creation functionality
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SigninPage()));
                 },
                 child: const Text(
                   'Create one',
@@ -107,22 +107,6 @@ void loginUser() {
               ),
             ],
           ),
-          SizedBox(height: GlobalSizes.h*0.015),
-          // GoogleBtn1(
-          //   onPressed: () {
-          //     // Implement necessary code for Google sign-in
-          //   },
-          // ),
-          // GitHubBtn1(
-          //   onPressed: () {
-          //     // Implement necessary code for Github sign-in
-          //   },
-          // ),
-          // AppleBtn1(
-          //   onPressed: () {
-          //     // Implement necessary code for apple sign-in
-          //   },
-          // ),
         ],
       ),
     ),
