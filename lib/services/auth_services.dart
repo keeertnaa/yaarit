@@ -31,7 +31,8 @@ class AuthService {
       );
 
       http.Response res = await http.post(
-        Uri.parse('https://localhost:3000/api/signup'),
+       Uri.parse('http://0234-49-43-233-171.ngrok-free.app/api/signup'),
+        // Uri.parse('https://localhost:3000/api/signup'),
         body: user.toJson(),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -92,6 +93,7 @@ class AuthService {
   }
 
   // get user data
+  // Retrieves user data using the provided context. Handles token validation and sets user data if the response is true.
   void getUserData(
     BuildContext context,
   ) async {

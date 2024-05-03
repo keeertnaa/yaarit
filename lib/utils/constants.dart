@@ -5,7 +5,7 @@ import 'package:http/io_client.dart';
 
 class Constants {
     // Initialize Constants.uri with a valid URL
-    static String uri = 'http://localhost:3000';
+    static String uri = 'http://0234-49-43-233-171.ngrok-free.app';
 
     // var client = http.IOClient(
     // HttpClient()..badCertificateCallback =
