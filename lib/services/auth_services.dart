@@ -31,7 +31,7 @@ class AuthService {
       );
 
       http.Response res = await http.post(
-        Uri.parse('https://localhost:3000/api/signup'),
+        Uri.parse('${Constants.uri}/api/signup'),
         body: user.toJson(),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
